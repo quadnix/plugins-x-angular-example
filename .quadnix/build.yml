@@ -1,0 +1,20 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm run-script build
+  post_build:
+    commands:
+      - cp -R .quadnix dist/
+      - mv dist/.quadnix/.htaccess dist/.htaccess
+
+run:
+  angular:
+    httpd:
+      enabled: true
+
+dist: dist
